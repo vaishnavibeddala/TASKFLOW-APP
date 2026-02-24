@@ -1,54 +1,22 @@
-*TaskFlow – Full Stack Task Manager*
-Overview:
-TaskFlow is a scalable full-stack web application built with React.js (Frontend) and Node.js/Express (Backend).
-It implements secure JWT-based authentication and a responsive dashboard with CRUD functionality.
+TaskFlow – Full Stack Scalable Web Application
+Overview
 
-Features:
-1.Authentication:
+TaskFlow is a full-stack web application built with React and Node.js that demonstrates secure authentication, protected routing, and complete CRUD functionality. The application allows users to register, log in, manage tasks, and access a personalized dashboard.
 
-User Registration (bcrypt password hashing)
+This project was developed as part of a Frontend Developer Internship assignment to demonstrate frontend engineering skills, backend integration, authentication, and scalable project structure.
 
-Login with JWT authentication
-
-Protected dashboard routes
-
-Logout functionality
-
-2.Dashboard:
-
-Create tasks
-
-View tasks
-
-Update tasks (toggle complete)
-
-Delete tasks
-
-Search & filter tasks
-
-Display logged-in user profile
-
-3.Security:
-
-JWT authentication middleware
-
-Password hashing (bcrypt)
-
-Protected API routes
-
-Environment variables for secrets
-
-4.Tech Stack:
-
+Tech Stack
 Frontend
 
 React.js
 
-TailwindCSS
+React Router
 
 Axios
 
-React Router
+Tailwind CSS
+
+Context-based routing protection
 
 Backend
 
@@ -56,70 +24,176 @@ Node.js
 
 Express.js
 
-MongoDB Atlas
+MongoDB (Atlas)
 
 Mongoose
 
-JWT
+JWT (JSON Web Tokens)
 
-bcrypt
+bcrypt (password hashing)
 
-Project Structure:
-Backend
-backend
- ├── config
- ├── controllers
- ├── middleware
- ├── models
- ├── routes
- └── server.js
+Features
+Authentication
 
-Frontend
-frontend
- ├── components
- ├── pages
- ├── App.js
- └── index.js
+User registration with hashed passwords (bcrypt)
 
-=>  How to Run Locally
-Backend
+Secure login with JWT-based authentication
+
+Token-based protected routes
+
+Logout functionality
+
+Dashboard
+
+User profile fetching from backend
+
+Create, Read, Update, Delete (CRUD) operations for tasks
+
+Toggle task completion
+
+Search and filter tasks
+
+Route protection (Dashboard accessible only when authenticated)
+
+Security
+
+Password hashing using bcrypt
+
+JWT verification middleware
+
+Protected API endpoints
+
+Environment variables for sensitive configuration
+
+.gitignore configured to exclude node_modules and .env
+
+
+
+
+
+Project Structure
+taskflow-app/
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+│
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   └── App.js
+│
+├── README.md
+└── .gitignore
+
+The project is structured to allow easy scalability and separation of concerns.
+
+
+Installation & Setup
+1. Clone the Repository
+git clone https://github.com/vaishnavibeddala/TASKFLOW-APP.git
+cd TASKFLOW-APP
+2. Backend Setup
 cd backend
 npm install
+
+Create a .env file inside backend with:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+
+Start backend:
+
 npm start
-Frontend
+
+Backend runs on:
+
+http://localhost:5000
+3. Frontend Setup
 cd frontend
 npm install
 npm start
 
-==> API Endpoints
-Method	    Endpoint	         Description
-POST	/api/auth/register	    Register user
-POST	/api/auth/login	         Login user
-GET	    /api/user/profile	   Get logged in user
-GET	    /api/tasks	              Get tasks
-POST	/api/tasks	             Create task
-PUT	    /api/tasks/:id	         Update task
-DELETE 	/api/tasks/:id	          Delete task
+Frontend runs on:
+
+http://localhost:3000
 
 
-=>Scalability Notes
+
+API Endpoints
+Authentication
+
+POST /api/auth/register
+
+POST /api/auth/login
+
+User
+
+GET /api/user/profile (Protected)
+
+Tasks
+
+GET /api/tasks (Protected)
+
+POST /api/tasks (Protected)
+
+PUT /api/tasks/:id (Protected)
+
+DELETE /api/tasks/:id (Protected)
+
+All protected routes require:
+
+Authorization: Bearer <token>
+Scalability Approach
+
+The project is structured to support future scalability:
+
+Modular architecture (controllers, routes, middleware separation)
+
+Environment-based configuration
+
+JWT middleware reusable across endpoints
+
+Frontend structured with reusable components
+
+Clear separation between frontend and backend services
 
 For production scaling:
 
-Deploy backend on Render / Railway
+Deploy backend on cloud (AWS, Render, Railway)
 
-Deploy frontend on Vercel
+Deploy frontend on Vercel/Netlify
 
-Implement rate limiting
+Use production MongoDB cluster
 
-Add refresh token mechanism
+Add rate limiting and request validation
 
-Add pagination for large datasets
+Implement refresh tokens
 
-Use indexing in MongoDB
+Add centralized logging and monitoring
 
-Add centralized error logging
+Future Improvements
+
+Role-based authentication (Admin/User)
+
+Pagination for tasks
+
+Task categories and priority levels
+
+Unit and integration testing
+
+Docker containerization
+
+CI/CD pipeline integration
 
 
-Author:
-Vaishnavi
+Author
+
+Vaishnavi Beddala
+Frontend Developer Intern Candidate
