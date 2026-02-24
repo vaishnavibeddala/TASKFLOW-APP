@@ -1,77 +1,60 @@
-TaskFlow – Full Stack Scalable Web Application
-Overview
+# TaskFlow – Full Stack Scalable Web Application
 
-TaskFlow is a full-stack web application built with React and Node.js that demonstrates secure authentication, protected routing, and complete CRUD functionality. The application allows users to register, log in, manage tasks, and access a personalized dashboard.
+## Overview
 
-This project was developed as part of a Frontend Developer Internship assignment to demonstrate frontend engineering skills, backend integration, authentication, and scalable project structure.
+TaskFlow is a full-stack web application built using React.js and Node.js.  
+It demonstrates secure authentication, protected routing, and complete CRUD functionality with a scalable project structure.
 
-Tech Stack
-Frontend
+This project was developed as part of a Frontend Developer Internship assignment to showcase frontend engineering skills, backend integration, authentication mechanisms, and production-ready architecture practices.
 
-React.js
+---
 
-React Router
+## Tech Stack
 
-Axios
+### Frontend
+- React.js
+- React Router
+- Axios
+- Tailwind CSS
+- Protected Route Handling
 
-Tailwind CSS
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Atlas)
+- Mongoose
+- JSON Web Tokens (JWT)
+- bcrypt (Password Hashing)
+- Middleware-based Authentication
 
-Context-based routing protection
+---
 
-Backend
+## Core Features
 
-Node.js
+### Authentication
+- User Registration with hashed passwords (bcrypt)
+- Secure Login with JWT-based authentication
+- Token-based protected routes
+- Logout functionality
 
-Express.js
+### Dashboard
+- Fetch logged-in user profile from backend
+- Create, Read, Update, Delete (CRUD) operations for tasks
+- Toggle task completion
+- Search and filter tasks
+- Route protection (Dashboard accessible only after authentication)
 
-MongoDB (Atlas)
+### Security Practices
+- Password hashing using bcrypt
+- JWT verification middleware
+- Protected API endpoints
+- Environment variables for sensitive configuration
+- .gitignore configured to exclude node_modules and .env
 
-Mongoose
+---
 
-JWT (JSON Web Tokens)
+## Project Structure
 
-bcrypt (password hashing)
-
-Features
-Authentication
-
-User registration with hashed passwords (bcrypt)
-
-Secure login with JWT-based authentication
-
-Token-based protected routes
-
-Logout functionality
-
-Dashboard
-
-User profile fetching from backend
-
-Create, Read, Update, Delete (CRUD) operations for tasks
-
-Toggle task completion
-
-Search and filter tasks
-
-Route protection (Dashboard accessible only when authenticated)
-
-Security
-
-Password hashing using bcrypt
-
-JWT verification middleware
-
-Protected API endpoints
-
-Environment variables for sensitive configuration
-
-.gitignore configured to exclude node_modules and .env
-
-
-
-
-
-Project Structure
 taskflow-app/
 │
 ├── backend/
@@ -91,109 +74,124 @@ taskflow-app/
 ├── README.md
 └── .gitignore
 
-The project is structured to allow easy scalability and separation of concerns.
+The architecture follows separation of concerns, making it scalable and easy to maintain.
 
+---
 
-Installation & Setup
-1. Clone the Repository
+## Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/vaishnavibeddala/TASKFLOW-APP.git
 cd TASKFLOW-APP
-2. Backend Setup
+```
+
+---
+
+### 2. Backend Setup
+
+```bash
 cd backend
 npm install
+```
 
-Create a .env file inside backend with:
+Create a `.env` file inside the backend folder:
 
+```
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+```
 
-Start backend:
+Start backend server:
 
+```bash
 npm start
+```
 
 Backend runs on:
-
+```
 http://localhost:5000
-3. Frontend Setup
+```
+
+---
+
+### 3. Frontend Setup
+
+```bash
 cd frontend
 npm install
 npm start
+```
 
 Frontend runs on:
-
+```
 http://localhost:3000
+```
 
+---
 
+## API Endpoints
 
-API Endpoints
-Authentication
+### Authentication
+- POST /api/auth/register
+- POST /api/auth/login
 
-POST /api/auth/register
+### User
+- GET /api/user/profile (Protected)
 
-POST /api/auth/login
-
-User
-
-GET /api/user/profile (Protected)
-
-Tasks
-
-GET /api/tasks (Protected)
-
-POST /api/tasks (Protected)
-
-PUT /api/tasks/:id (Protected)
-
-DELETE /api/tasks/:id (Protected)
+### Tasks
+- GET /api/tasks (Protected)
+- POST /api/tasks (Protected)
+- PUT /api/tasks/:id (Protected)
+- DELETE /api/tasks/:id (Protected)
 
 All protected routes require:
 
+```
 Authorization: Bearer <token>
-Scalability Approach
+```
 
-The project is structured to support future scalability:
+---
 
-Modular architecture (controllers, routes, middleware separation)
+## Scalability Approach
 
-Environment-based configuration
+The project is structured for production-level scaling:
 
-JWT middleware reusable across endpoints
-
-Frontend structured with reusable components
-
-Clear separation between frontend and backend services
+- Modular architecture (controllers, routes, middleware separation)
+- Environment-based configuration
+- Reusable JWT middleware
+- Clean frontend-backend separation
+- Database abstraction using Mongoose models
 
 For production scaling:
 
-Deploy backend on cloud (AWS, Render, Railway)
+- Deploy backend on cloud services (AWS, Render, Railway)
+- Deploy frontend on Vercel or Netlify
+- Use production MongoDB cluster
+- Implement rate limiting
+- Add request validation layer
+- Introduce refresh tokens
+- Add centralized logging and monitoring
+- Containerize using Docker
+- Implement CI/CD pipeline
 
-Deploy frontend on Vercel/Netlify
+---
 
-Use production MongoDB cluster
+## Future Improvements
 
-Add rate limiting and request validation
+- Role-based authentication (Admin/User)
+- Pagination for tasks
+- Task categories and priority levels
+- Unit and integration testing
+- Docker containerization
+- CI/CD automation
+- UI enhancements and performance optimization
 
-Implement refresh tokens
+---
 
-Add centralized logging and monitoring
+## Author
 
-Future Improvements
-
-Role-based authentication (Admin/User)
-
-Pagination for tasks
-
-Task categories and priority levels
-
-Unit and integration testing
-
-Docker containerization
-
-CI/CD pipeline integration
-
-
-Author
-
-Vaishnavi Beddala
+Vaishnavi Beddala  
 Frontend Developer Intern Candidate
